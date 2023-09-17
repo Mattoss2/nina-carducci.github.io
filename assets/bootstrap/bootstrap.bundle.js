@@ -33,13 +33,7 @@
    */
 
 
-  const getUID = prefix => {
-    do {
-      prefix += Math.floor(Math.random() * MAX_UID);
-    } while (document.getElementById(prefix));
-
-    return prefix;
-  };
+ 
 
   const getSelector = element => {
     let selector = element.getAttribute('data-bs-target');
@@ -6534,18 +6528,7 @@
    */
 
 
-  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-    if (['A', 'AREA'].includes(this.tagName)) {
-      event.preventDefault();
-    }
-
-    if (isDisabled(this)) {
-      return;
-    }
-
-    const data = Tab.getOrCreateInstance(this);
-    data.show();
-  });
+  
   /**
    * ------------------------------------------------------------------------
    * jQuery
