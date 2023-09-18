@@ -73,7 +73,7 @@ body {
 }
 img.gallery-item.img-fluid{
 	width: 424px;
-	height: 424px;
+	
 }
 img.d-block.w-100{
 	width: 100%;
@@ -117,6 +117,7 @@ img{
     background-color: rgb(120, 110, 50);
 	border-radius:0 ;
 }
+
 .nav-pills .nav-link {
 	color: #000
 }
