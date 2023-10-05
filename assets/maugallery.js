@@ -145,14 +145,14 @@
           }
         });
       }
-      let index = 0,
-        next = null;
+      let index = (index === 0) ? imagesCollection.length - 1 : index - 1;
+      next = imagesCollection[index];
+      $(".lightboxImage").attr("src", $(next).attr("src"));
 
-      $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i ;
-        }
-      });
+      index = (index === 0) ? imagesCollection.length - 1 : index - 1;  // <= cette ligne a été corrigée
+      let next = imagesCollection[index];
+      $(".lightboxImage").attr("src", $(next).attr("src"));
+  
       next =
         imagesCollection[index] ||
         imagesCollection[imagesCollection.length - 1];
@@ -184,14 +184,17 @@
           }
         });
       }
-      let index = 0,
-        next = null;
-
+      let index;
       $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
-        }
+          if ($(activeImage).attr("src") === $(this).attr("src")) {
+              index = i
+          }
       });
+
+      index = (index === imagesCollection.length - 1) ? 0 : index + 1;  // <= cette ligne a été corrigée
+      let next = imagesCollection[index];
+      $(".lightboxImage").attr("src", $(next).attr("src"));
+        
       next = imagesCollection[index] || imagesCollection[0];
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
